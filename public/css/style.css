@@ -218,3 +218,15 @@ main .editForm form > button {
     padding: 10px 0;
     border-radius: 5px;
 }
+
+#button {
+    border: none;
+    background:#B20000;
+    color: white;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
+.formDelete {
+    margin-top: 20px;
+}

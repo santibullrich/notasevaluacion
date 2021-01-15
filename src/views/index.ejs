@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notitas</title>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 
@@ -13,7 +13,7 @@
         <nav>
             <div class="brand-wrapper">
                 <div class="logo">
-                    <img src="images/logo.svg" alt="">
+                    <a href="/"><img src="/images/logo.svg" alt=""></a>
                 </div>
             </div>        
         </nav>
@@ -21,23 +21,26 @@
 
     <main>
         <section class="new">
-            <form action="">
+            <form action="/" method="POST">
                 <input type="text" name="title" placeholder="Título">
-                <textarea name="" id="" cols="30" placeholder="Añade una nota..."></textarea>
+                <textarea name="text" id="text" cols="30" placeholder="Añade una nota..."></textarea>
                 <button type="submit">Crear</button>
             </form>
         </section>
         <section class="list">
+            <% for(let i = 0; i < nota.length; i++) {%>
             <div class="note">
-                <h2>Un título</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, placeat sapiente! Accusantium sit quod quos.</p>
+                
+                <h2><%= nota[i].title %></h2>
+                <p><%= nota[i].text %></p>
+                
                 <div class="edit">
-                    <a href="#"><i class="far fa-edit"></i></a>
-                    <form action="">
-                        <button type="submit"><i class="far fa-trash-alt"></i></button>
+                    <a href="/notas/edit/<%= nota[i].id %>"><i class="far fa-edit"></i></a>
+                    <a href="/notas/edit/<%= nota[i].id %>"><i class="far fa-trash-alt"></i></a>
                     </form>
                 </div>
             </div>
+            <% } %>
         </section>
     </main>
 
